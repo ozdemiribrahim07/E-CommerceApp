@@ -1,0 +1,52 @@
+﻿@using eCommerce.Entities.Concrete
+
+@model Product
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div>
+</div>
+
+<div style="text-align:center;">
+    <h2> <i class="fa-solid fa-plus"></i> Ürün Ekle</h2>
+
+</div>
+
+<form method="post" enctype="multipart/form-data">
+
+   
+    <div class="row my-1">
+        <h4>Ürün Adı</h4>
+        <input asp-for="ProductName" class="form-control" />
+    </div>
+    <br />
+    <div class="row my-1">
+        <h4>Ürün Açıklaması</h4>
+        <textarea asp-for="ProductDesc" class="form-control"></textarea>
+    </div>
+    <br />
+    <div class="row my-1">
+        <h4>Ürün Fiyatı</h4>
+        <input asp-for="ProductPrice" class="form-control" />
+    </div>
+    <br />
+    <div class="row my-1">
+        <h4>Ürün Kategorisi</h4>
+        <input asp-for="CategoryId" class="form-control" />
+    </div>
+    <br />
+     <div class="row my-1">
+        <h4>Ürün Resmi</h4>
+        <input type="file" id="uploadImage" name="uploadImg" class="form-control" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Ekle</button>
+
+
+</form>
+
+

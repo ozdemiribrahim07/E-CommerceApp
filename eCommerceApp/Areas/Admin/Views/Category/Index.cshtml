@@ -1,0 +1,56 @@
+﻿@using eCommerce.Entities.Concrete
+
+@model IEnumerable<Category>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    <br />
+
+    <div style="width:90%; margin:0 auto;">
+        <div style="text-align:center;">
+            <h2> <i class="fa-solid fa-list"></i> Kategori Listesi</h2>
+            
+        </div>
+        <div col-8>
+                <a class="btn btn-primary" asp-action="Add" asp-controller="Category" asp-area="Admin">Kategori Ekle</a>
+            </div>
+
+
+
+        <br />
+        <table class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Kategori Adı</th>
+                    <th>İşlemler</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                        <tr>
+                            <td>@item.CategoryName</td>
+                            <td>
+                                <a asp-controller="Category" asp-action="Edit" class="btn btn-success" asp-route-id="@item.Id">
+                                    <i class="bi bi-pen"></i>  Güncelle
+                                </a>
+                                 <a asp-controller="Category" asp-action="Delete" class="btn btn-primary" asp-route-id="@item.Id">
+                                    <i class="bi bi-file-earmark-x"></i> Sil
+                                </a>
+                            
+                            
+                            </td>
+
+                        </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

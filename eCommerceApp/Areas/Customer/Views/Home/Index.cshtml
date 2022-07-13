@@ -1,0 +1,39 @@
+﻿@using eCommerce.Entities.Concrete
+
+
+@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<div style="text-align:center">
+    <h1>Ürünler</h1>
+    <br />
+</div>
+
+<div class="row pb-4">
+    @foreach (var item in @Model)
+    {
+        <div class="card" style="width:18rem; margin-right:90px; margin-top:20px;">
+
+            <img class="card-img-top" src="@item.ProductImage">
+            <div class="card-body">
+                <h5 class="card-title">@item.ProductName</h5>
+                <h3 class="card-text"> @item.ProductPrice.ToString("0.00 ₺")</h3>
+                <a asp-action="Details" asp-controller="Home" asp-route-productid="@item.Id" class="btn btn-success">Detaylar</a>
+            </div>
+           <h4> &nbsp;</h4>
+        </div>
+        
+
+
+    }
+
+</div>
+
+

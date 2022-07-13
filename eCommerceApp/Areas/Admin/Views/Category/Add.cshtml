@@ -1,0 +1,30 @@
+﻿@using eCommerce.Entities.Concrete
+
+@model Category
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div>
+   
+</div>
+
+<div style="text-align:center;">
+    <h2> <i class="fa-solid fa-plus"></i> Kategori Ekle</h2>
+
+</div>
+<br />
+@using (Html.BeginForm("Add", "Category", FormMethod.Post))
+{
+    <h4>Kategori Adı</h4>
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CategoryName, "", new { @class = "text-danger" })
+    <br />
+    <button class="btn btn-info">Kategori Ekle</button>
+    <input type="button" class="btn btn-danger" value="Geri Dön" onclick="location.href = '@Url.Action("Index")'" />
+
+
+}
